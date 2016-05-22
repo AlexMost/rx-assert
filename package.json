@@ -1,0 +1,33 @@
+{
+  "name": "rx-assert",
+  "version": "1.0.0",
+  "description": "Helper methods for assertions in unit tests for rxjs library",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexMost/rx-assert.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexMost/rx-assert/issues"
+  },
+  "keywords": [
+    "rx",
+    "rxjs",
+    "unit test",
+    "tesing",
+    "assert"
+  ],
+  "homepage": "https://github.com/AlexMost/rx-assert#readme",
+  "dependencies": {
+    "rx": "^4.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
+}
