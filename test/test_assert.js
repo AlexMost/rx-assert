@@ -111,4 +111,26 @@ describe('check isEqual', function() {
         expect(result[0]).to.equal(false);
         expect(result[1]).to.be.a('string');
     });
+
+    it('should return false if not equal length', function() {
+        var scheduler = new TestScheduler();
+
+        var xs = scheduler.createHotObservable(
+            onNext(250, 1),
+            onCompleted(550)
+        );
+
+        var results = scheduler.startScheduler(function() {
+            return xs.delay(100, scheduler);
+        });
+
+        var expected = [
+            onNext(350, 1)
+        ]
+
+        var result = rxAssert.isEqual(results.messages, expected);
+        expect(result).to.have.length(2);
+        expect(result[0]).to.equal(false);
+        expect(result[1]).to.be.a('string');        
+    });
 });
