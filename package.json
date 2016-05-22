@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/AlexMost/rx-assert.git"
   },
-  "author": "",
+  "author": "Alexander Mostovenko",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/AlexMost/rx-assert/issues"

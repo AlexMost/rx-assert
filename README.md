@@ -1,6 +1,11 @@
 # rx-assert
 Helper methods for making asserts in unit tests for rxjs library.
 
+# Installation
+```
+npm install rx-assert
+```
+
 ## Description
 This package provides a low level api for comparing observable sequences.
 Can be used in unit tests for comparing observables.
