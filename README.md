@@ -8,9 +8,10 @@ npm install rx-assert
 
 ## Description
 This package provides a low level api for comparing observable sequences.
-Can be used in unit tests for comparing observables.
+Can be used in unit tests for comparing observables.</br>
+Here is the wrapper around this library to use it as chai plugin - [chai-rx-assert](https://github.com/AlexMost/chai-rx-assert)
 
-## Example of usage with chai
+## Example:
 ```javascript
 const rxAssert = require('rx-assert');
 
