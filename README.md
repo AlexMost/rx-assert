@@ -19,33 +19,33 @@ const onCompleted = Rx.ReactiveTest.onCompleted;
 const subscribe = Rx.ReactiveTest.subscribe;
 
 describe('getDelayedStream', () => {
-	
-	it('should return messages with delay', () => {
-		const scheduler = new TestScheduler();
+    
+    it('should return messages with delay', () => {
+        const scheduler = new TestScheduler();
 
-		const xs = scheduler.createHotObservable(
-			onNext(150, 1),
-			onNext(250, 2),
-			onNext(350, 3),
-			onNext(450, 4),
-			onCompleted(550)
-		);
+        const xs = scheduler.createHotObservable(
+            onNext(150, 1),
+            onNext(250, 2),
+            onNext(350, 3),
+            onNext(450, 4),
+            onCompleted(550)
+        );
 
-		const results = scheduler.startScheduler(() => {
-			return xs.delay(100, scheduler);
-		});
+        const results = scheduler.startScheduler(() => {
+            return xs.delay(100, scheduler);
+        });
 
-		const expected = [
-			onNext(350, 2),
-			onNext(450, 3),
-			onNext(550, 4),
-			onCompleted(650)
-		]
+        const expected = [
+            onNext(350, 2),
+            onNext(450, 3),
+            onNext(550, 4),
+            onCompleted(650)
+        ]
 
-		const [equal, message] = rxAssert.isEqual(results.messages, expected);
+        const [equal, message] = rxAssert.isEqual(results.messages, expected);
 
-		assert.isOk(equal, message)
-	});
+        assert.isOk(equal, message)
+    });
 });
 
 ```
@@ -56,30 +56,29 @@ describe('getDelayedStream', () => {
 * *@param* {List} expected List with notification records (onNext(), onCompleted e.t.c)
 * *@return* {List} List with 2 elements - [isEqual {bool}, diffMessage {String}]
 
-First element defines wether actual and expected sequences are equal.
-
+First element defines wether actual and expected sequences are equal.</br>
 The second one provides a diff message.
 
 Example:
 
 ```javascript
 const xs = scheduler.createHotObservable(
-			onNext(150, 1),
-			onNext(250, 2),
-			onNext(350, 3),
-			onNext(450, 4),
-			onCompleted(550)
-		);
+    onNext(150, 1),
+    onNext(250, 2),
+    onNext(350, 3),
+    onNext(450, 4),
+    onCompleted(550)
+);
 
 const results = scheduler.startScheduler(() => {
-	return xs.delay(100, scheduler);
+    return xs.delay(100, scheduler);
 });
 
 const expected = [
-	onNext(350, 2),
-	onNext(450, 3),
-	onNext(550, 4),
-	onCompleted(650)
+    onNext(350, 2),
+    onNext(450, 3),
+    onNext(550, 4),
+    onCompleted(650)
 ]
 
 const [equal, message] = rxAssert.isEqual(results.messages, expected);
